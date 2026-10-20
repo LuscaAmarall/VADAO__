@@ -76,9 +76,9 @@ body {
 .panel:hover, .panel:focus-visible { flex-grow: 2.3; background: var(--c); color: var(--on); border-color: var(--c); }
 .panel:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 .panel:hover::before, .panel:focus-visible::before { background: transparent; }
-.panel .in { transform: skewX(8deg); height: 100%; padding: 28px 54px 26px 30px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
+.panel .in { transform: skewX(8deg); height: 100%; padding: 28px 36px 26px 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
 .panel .label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); transition: color .25s ease; }
-.panel h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(2rem, 3.6vw, 3.4rem); line-height: .95; margin: 0; overflow-wrap: anywhere; }
+.panel h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.7rem, 2.5vw, 2.7rem); line-height: .95; margin: 0; overflow-wrap: normal; }
 .panel p { margin: 0; color: var(--muted); max-width: 22ch; transition: color .25s ease; }
 .panel:hover .label, .panel:hover p, .panel:focus-visible .label, .panel:focus-visible p { color: inherit; opacity: .9; }
 .panel .go { position: absolute; top: 28px; right: 44px; transform: skewX(8deg); width: 34px; height: 34px; display: grid; place-items: center; border: 1.5px solid currentColor; border-radius: 50%; opacity: .7; }
