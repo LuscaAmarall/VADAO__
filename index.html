@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Links oficiais do Vadão: Twitch, YouTube, TikTok, Discord e media kit.">
+<meta name="theme-color" content="#0B0C18">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vadão">
+<meta property="og:description" content="Content creator e variety streamer. Todos os links em um lugar.">
+<title>Vadão Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: tela de seleção de lutador. Nome gigante em largura total e uma fileira de painéis inclinados que se expandem ao passar o mouse; no celular viram linhas empilhadas. Visual escuro de propósito. */
+:root {
+  color-scheme: dark;
+  --bg: #0B0C18;
+  --surface: #151730;
+  --ink: #F3F4FB;
+  --muted: #A2A8C2;
+  --line: #2A2E50;
+  --p1: #FF3B4E;
+  --p2: #3D7BFF;
+  --font-display: "Anton", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.45;
+  min-height: 100vh;
+  padding-block: 28px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: clip;
+}
+.shell { max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.open { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); }
+.open i { width: 8px; height: 8px; border-radius: 50%; background: var(--p1); }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; }
+.hero h1 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(4.2rem, 16vw, 15rem); line-height: .86; margin: 0; letter-spacing: .005em; overflow-wrap: anywhere; }
+.hero h1 span { color: transparent; -webkit-text-stroke: 2px var(--ink); }
+.hero .side { max-width: 30ch; display: flex; flex-direction: column; gap: 16px; padding-bottom: 10px; }
+.hero .lede { margin: 0; font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 500; }
+.slash { display: flex; gap: 8px; }
+.slash i { display: block; width: 64px; height: 10px; transform: skewX(-30deg); }
+.slash i:first-child { background: var(--p1); }
+.slash i:last-child { background: var(--p2); }
+
+.roster { display: flex; gap: 10px; height: clamp(360px, 52vh, 520px); padding-inline: 34px; }
+.panel {
+  --c: var(--p1);
+  --on: #fff;
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  transform: skewX(-8deg);
+  transition: flex-grow .35s ease, background .25s ease, color .25s ease, border-color .25s ease;
+}
+.panel::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--c); }
+.panel:hover, .panel:focus-visible { flex-grow: 2.3; background: var(--c); color: var(--on); border-color: var(--c); }
+.panel:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.panel:hover::before, .panel:focus-visible::before { background: transparent; }
+.panel .in { transform: skewX(8deg); height: 100%; padding: 28px 54px 26px 30px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
+.panel .label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); transition: color .25s ease; }
+.panel h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(2rem, 3.6vw, 3.4rem); line-height: .95; margin: 0; overflow-wrap: anywhere; }
+.panel p { margin: 0; color: var(--muted); max-width: 22ch; transition: color .25s ease; }
+.panel:hover .label, .panel:hover p, .panel:focus-visible .label, .panel:focus-visible p { color: inherit; opacity: .9; }
+.panel .go { position: absolute; top: 28px; right: 44px; transform: skewX(8deg); width: 34px; height: 34px; display: grid; place-items: center; border: 1.5px solid currentColor; border-radius: 50%; opacity: .7; }
+.panel .go svg { width: 15px; height: 15px; }
+.twitch { --c: #9146FF; }
+.youtube { --c: #FF2D3A; }
+.tiktok { --c: #25F4EE; --on: #08121A; }
+.discord { --c: #5865F2; }
+.livepix { --c: #19B8E6; --on: #08121A; }
+
+.kit {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  padding: 22px 30px;
+  border: 1px solid var(--line);
+  border-left: 10px solid var(--p2);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease;
+}
+.kit:hover { background: var(--p2); border-color: var(--p2); }
+.kit:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.kit .label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.kit:hover .label, .kit:hover p { color: #fff; }
+.kit h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1; margin: 4px 0 0; }
+.kit p { margin: 0; color: var(--muted); max-width: 44ch; }
+
+.foot { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+@media (max-width: 900px) {
+  body { padding-block: 16px 32px; }
+  .shell { gap: 28px; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .roster { flex-direction: column; height: auto; padding-inline: 0; gap: 8px; }
+  .panel, .panel:hover, .panel:focus-visible { transform: none; flex: none; }
+  .panel .in { transform: none; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 20px 20px 20px 24px; gap: 4px 16px; }
+  .panel .go { position: static; transform: none; flex: none; }
+  .panel h2 { font-size: 2rem; }
+  .panel .text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .panel::before { inset: 0 auto 0 0; width: 8px; height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel, .kit, .panel .label, .panel p { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <span>Smash e outros jogos</span>
+    <span class="open"><i></i>Aberto a parcerias</span>
+  </div>
+
+  <header class="hero">
+    <h1>Vadão</h1>
+    <div class="side">
+      <div class="slash" aria-hidden="true"><i></i><i></i></div>
+      <p class="lede">Content creator e variety streamer.</p>
+    </div>
+  </header>
+
+  <main>
+    <nav class="roster" aria-label="Links">
+      <a class="panel twitch" href="https://www.twitch.tv/vadao__" target="_blank" rel="noopener">
+        <div class="in">
+          <div class="text"><span class="label">Ao vivo</span><h2>Twitch</h2><p>Lives quase todos os dias.</p></div>
+        </div>
+        <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="panel youtube" href="https://www.youtube.com/channel/UCu7Y02S2HxNUoaJbnOp3kxg" target="_blank" rel="noopener">
+        <div class="in">
+          <div class="text"><span class="label">Vídeos</span><h2>YouTube</h2><p>Vídeos, VODs e highlights.</p></div>
+        </div>
+        <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="panel tiktok" href="https://www.tiktok.com/@vadao_clips" target="_blank" rel="noopener">
+        <div class="in">
+          <div class="text"><span class="label">Clipes</span><h2>TikTok</h2><p>Clipes e jogadas rápidas.</p></div>
+        </div>
+        <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="panel discord" href="https://discord.com/invite/UKXjbUWeRM" target="_blank" rel="noopener">
+        <div class="in">
+          <div class="text"><span class="label">Comunidade</span><h2>Discord</h2><p>Venha jogar com a gente.</p></div>
+        </div>
+        <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="panel livepix" href="https://tipa.ai/TIPAYPU5U7PN8LSV9CAMYMLZZCNB" target="_blank" rel="noopener">
+        <div class="in">
+          <div class="text"><span class="label">Apoio</span><h2>Apoie</h2><p>Mande uma mensagem na tela.</p></div>
+        </div>
+        <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+    </nav>
+  </main>
+
+  <a class="kit" href="#" target="_blank" rel="noopener">
+    <div>
+      <span class="label">Para marcas</span>
+      <h2>Media kit</h2>
+    </div>
+    <p>Ações em live, vídeos dedicados e torneios com a comunidade.</p>
+  </a>
+
+  <footer class="foot">Smash Bros. e outros jogos</footer>
+</div>
+</body>
+</html>
